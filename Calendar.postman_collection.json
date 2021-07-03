@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "0d1d28eb-3524-4a56-9696-1be9c1e09d55",
+		"name": "Calendar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2021-07-09\",\r\n    \"endDate\":\"2021-07-10\",\r\n    \"description\":\"meet\",\r\n    \"instructor\":{\r\n        \"id\":9\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/event/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/event/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"event",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 10,\r\n    \"startDate\": \"2021-07-01T00:00:00.000+00:00\",\r\n    \"endDate\": \"2021-07-09T00:00:00.000+00:00\",\r\n    \"description\": \"2 start\",\r\n    \"instructor\": {\r\n        \"id\": 1\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/event/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"event",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/event/25",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"event",
+								"25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instructor",
+			"item": [
+				{
+					"name": "Get Instructor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/instructor/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"instructor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Instructor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/instructor/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"instructor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Instructor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Fabio\",\r\n    \"lastName\":\"Arbeláez\",\r\n    \"birthDate\":\"1995-03-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/instructor/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"instructor",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
