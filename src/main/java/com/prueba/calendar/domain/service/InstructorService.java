@@ -27,19 +27,19 @@ public class InstructorService {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date today = c.getTime();
-        c.add(Calendar.DATE, 7);
+        c.add(Calendar.DATE, 6);
         Date endwewk1 = c.getTime();
         c.add(Calendar.DATE, 1);
         Date startweek2 = c.getTime();
-        c.add(Calendar.DATE, 7);
+        c.add(Calendar.DATE, 6);
         Date endwewk2 = c.getTime();
         c.add(Calendar.DATE, 1);
         Date startweek3 = c.getTime();
-        c.add(Calendar.DATE, 7);
+        c.add(Calendar.DATE, 6);
         Date endwewk3 = c.getTime();
         c.add(Calendar.DATE, 1);
         Date startweek4 = c.getTime();
-        c.add(Calendar.DATE, 7);
+        c.add(Calendar.DATE, 6);
         Date endwewk4 = c.getTime();
 
         Instructor responseInstructor = instructorRepository.save(instructor);
@@ -48,6 +48,7 @@ public class InstructorService {
         evento1.setInstructor(responseInstructor);
         evento1.setStartDate(today);
         evento1.setEndDate(endwewk1);
+        evento1.setEventType("Meet");
         evento1.setDescription("Seminars");
 
         eventRepository.save(evento1);
@@ -56,6 +57,7 @@ public class InstructorService {
         evento2.setInstructor(responseInstructor);
         evento2.setStartDate(startweek2);
         evento2.setEndDate(endwewk2);
+        evento2.setEventType("Meet");
         evento2.setDescription("Project");
 
         eventRepository.save(evento2);
@@ -64,6 +66,7 @@ public class InstructorService {
         evento3.setInstructor(responseInstructor);
         evento3.setStartDate(startweek3);
         evento3.setEndDate(endwewk3);
+        evento3.setEventType("Free");
         evento3.setDescription("Week Off");
 
         eventRepository.save(evento3);
@@ -72,6 +75,7 @@ public class InstructorService {
         evento4.setInstructor(responseInstructor);
         evento4.setStartDate(startweek4);
         evento4.setEndDate(endwewk4);
+        evento4.setEventType("Meet");
         evento4.setDescription("Seminars");
 
         eventRepository.save(evento4);
@@ -91,7 +95,7 @@ public class InstructorService {
         for(Instructor i : responseInstructors){
             Long days = 0L;
             for (Event event: i.getEvents()) {
-                days += Duration.between(event.getStartDate().toInstant() , event.getEndDate().toInstant()).toDays();
+                days += 1 + Duration.between(event.getStartDate().toInstant() , event.getEndDate().toInstant()).toDays();
             }
             i.setDuration(days);
         }
